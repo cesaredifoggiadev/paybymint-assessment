@@ -18,6 +18,8 @@ import tokenABI from "../constants/abi/token";
 import marketplaceABI from '../constants/abi/marketplace';
 import HowItWorksTab from '../components/HowItWorksTabs/HowItWorksTabs'
 import Icon from '../components/Icon/Icon'
+import { useTranslation } from 'next-i18next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 let tokenContractAddr, marketplaceContractAddr
 let tokenContract, marketContract
@@ -34,6 +36,7 @@ const Home = () => {
   const walletAddress = useSelector(state => state.user.address)
   const provider = useSelector(state => state.user.provider)
   const blockchain = useSelector(state => state.user.blockchain)
+  const { t } = useTranslation('common')
 
   useEffect(() => {
     const init = async () => {
@@ -113,7 +116,7 @@ const Home = () => {
       <section className="flex flex-col px-8 py-14">
         <div className="mb-24 flex flex-col md:flex-row gap-y-9">
           <div className="flex flex-col flex-1 items-start justify-start" >
-            <p className="mb-6 font-medium text-trout text-4xl md:text-15xl max-w-[600px]">Transform your Customers into Investors</p>
+            <p className="mb-6 font-medium text-trout text-4xl md:text-15xl max-w-[600px]">{t('slider.title')}</p>
             <p className="text-lg text-pale-sky mb-14">Internet businesses of all sizes - from startups to large enterprises use paybymint as a payment solution to accept crypto payments, track orders and send payouts on the blockchain.
               Businesses are able to accept crypto payment when customers mint a fraction of their NFT rather than direct payment. </p>
             <div className="flex items-center text-lg">
@@ -342,5 +345,10 @@ const Home = () => {
 
   )
 }
+export const getServerSideProps = async ({ locale }) => ({
+  props: {
+      ...(await serverSideTranslations(locale, ['common']))
+  }
+});
 
 export default Home;
