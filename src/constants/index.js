@@ -7,7 +7,7 @@ const NAME = 'Rinkeby_Testnet'
 const SYMBOL = 'ETH'
 
 const ETHEREUM_SETTING = {
-  tokenContractAddr: '0xB4b99F35657Ec6EbCa58BB5854c7c34b7FA64258',
+  tokenContractAddr: process.env.NEXT_PUBLIC_ETHTCA,
   marketplaceContractAddr: '0xEBc57E40163eceD9A2D5E5B67c876335eF108a65',
   CHAINID: 137,
   RPC_URL: 'https://polygon-rpc.com',

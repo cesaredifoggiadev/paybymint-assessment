@@ -12,3 +12,7 @@ tasks:
 ports:
   - port: 3000-8545
     visibility: public
+
+env:
+  NEXT_PUBLIC_HARDHAT_PROJECTID: ${NEXT_PUBLIC_HARDHAT_PROJECTID}
+  NEXT_PUBLIC_ETHTCA: ${NEXT_PUBLIC_ETHTCA}
