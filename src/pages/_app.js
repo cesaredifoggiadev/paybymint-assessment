@@ -12,6 +12,7 @@ import '../styles/globals.css'
 import Header from '../components/Header/Header'
 import Footer from "../components/Footer/Footer";
 import Head from "next/head";
+import { appWithTranslation } from 'next-i18next';
 
 function Poulina({ Component, pageProps }) {
   const dispatch = useDispatch()
@@ -46,4 +47,4 @@ function Poulina({ Component, pageProps }) {
   )
 }
 
-export default wrapper.withRedux(Poulina)
+export default wrapper.withRedux(appWithTranslation(Poulina))
