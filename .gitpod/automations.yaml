@@ -1,0 +1,23 @@
+tasks:
+    command-0:
+        command: npx hardhat node
+        dependsOn:
+            - init-000
+        description: init task migrated from .gitpod.yml
+        name: 'Install, start node, and deploy: command'
+        triggeredBy:
+            - postDevcontainerStart
+    command-1:
+        command: |
+            export CLIENT_URL="$(gp url 8545)"
+            gp await-port 8545
+            npx hardhat run scripts/deploy.js --network localhost
+            npm run dev
+        description: init task migrated from .gitpod.yml
+        name: 'Deploy smart contract and start server: command'
+        triggeredBy:
+            - postDevcontainerStart
+    init-000:
+        command: yarn
+        description: init task migrated from .gitpod.yml
+        name: 'Install, start node, and deploy: init'

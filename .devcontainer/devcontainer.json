@@ -1,0 +1,17 @@
+{
+  "name": "paybymint-assessment",
+  "image": "mcr.microsoft.com/devcontainers/base:latest",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+  "remoteUser": "gitpod",
+  "containerUser": "gitpod",
+  "workspaceFolder": "/workspace/paybymint-assessment",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace/paybymint-assessment,type=bind",
+  "portsAttributes": {
+    "3000-8545": {
+      "label": "Port 3000-8545",
+      "elevateIfNeeded": true
+    }
+  }
+}
